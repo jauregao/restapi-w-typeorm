@@ -4,8 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "del /q /s dist && tsc -p .",
-    "dev": "nodemon --exec ts-node ./src/index.ts"
+    "clean": "del /q /s dist",
+    "build": "tsc",
+    "start-server": "node dist/index.js",
+    "start-dev-server": "nodemon --exec ts-node ./src/index.ts",
+    "dev": "npm-run-all clean build start-dev-server",
+    "populate-db": "npm-run-all clean build run-populate-db-script",
+    "run-populate-db-script": "node dist/models/populate-db.js"
   },
   "keywords": [],
   "author": "",
