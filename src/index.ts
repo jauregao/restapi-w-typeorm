@@ -18,5 +18,5 @@ AppDataSource.initialize()
     setupAndStartServer()
   })
   .catch((error) => {
-    console.error("Error during Data Source initialization", error)
+    console.error('Error during Data Source initialization', error)
   })

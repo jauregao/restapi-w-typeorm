@@ -5,11 +5,11 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn
-} from "typeorm"
-import { Lesson } from "./Lesson"
+} from 'typeorm'
+import { Lesson } from './Lesson'
 
 @Entity({
-  name: "COURSES"
+  name: 'COURSES'
 })
 export class Course {
 
