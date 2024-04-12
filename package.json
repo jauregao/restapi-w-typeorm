@@ -10,7 +10,9 @@
     "start-dev-server": "nodemon --exec ts-node ./src/index.ts",
     "dev": "npm-run-all clean build start-dev-server",
     "populate-db": "npm-run-all clean build run-populate-db-script",
-    "run-populate-db-script": "node dist/models/populate-db.js"
+    "run-populate-db-script": "node dist/models/populate-db.js",
+    "delete-db": "npm-run-all clean build run-delete-db-script",
+    "run-delete-db-script": "node dist/models/delete-db.js"
   },
   "keywords": [],
   "author": "",
