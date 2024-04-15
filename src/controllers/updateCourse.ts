@@ -9,7 +9,7 @@ export async function updateCourse(req: Request, res: Response) {
   const courseId = params.courseId
     if(isNaN(courseId) || !courseId ) return res.status(400).json({ error: 'Course id not provided or invalid.'})
   
-  const courseData = req.body as Course
+  const courseData = req.body
 
     try {
       await AppDataSource
