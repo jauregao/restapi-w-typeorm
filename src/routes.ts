@@ -1,11 +1,11 @@
-import { Router } from "express"
+import { Router } from 'express'
 import {
     getAllCourses,
     getOneCourseByUrl,
     findLessonsForCourse,
-    updateCourse
-  } from "./controllers/index"
-
+    updateCourse,
+    createCourse
+  } from './controllers/index'
 
 const routes = Router()
 
@@ -19,6 +19,10 @@ routes.get('/courses/:courseUrl',
 
 routes.patch('/courses/:courseId', 
   updateCourse
+)
+
+routes.post('/courses', 
+  createCourse
 )
 
 routes.get('/courses/:courseId/lessons', 
