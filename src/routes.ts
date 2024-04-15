@@ -4,7 +4,8 @@ import {
     getOneCourseByUrl,
     findLessonsForCourse,
     updateCourse,
-    createCourse
+    createCourse,
+    deleteCourseAndLessons
   } from './controllers/index'
 
 const routes = Router()
@@ -19,6 +20,10 @@ routes.get('/courses/:courseUrl',
 
 routes.patch('/courses/:courseId', 
   updateCourse
+)
+
+routes.delete('/courses/:courseId', 
+  deleteCourseAndLessons
 )
 
 routes.post('/courses', 
