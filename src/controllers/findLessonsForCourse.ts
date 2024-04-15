@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { AppDataSource } from '../configs/databseConnection'
-import { Lesson } from '../models/Lesson'
 import { defaultErrorHandler } from '../middleware/default-error-handler'
+import { Lesson } from '../models/Lesson'
 
 export async function findLessonsForCourse(req: Request, res: Response) {
 

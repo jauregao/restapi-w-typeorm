@@ -1,7 +1,11 @@
 import { Router } from "express"
-import { getAllCourses } from "./controllers/getAllCourses"
-import { getOneCourseByUrl } from "./controllers/getOneCourseByUrl"
-import { findLessonsForCourse } from "./controllers/findLessonsForCourse"
+import {
+    getAllCourses,
+    getOneCourseByUrl,
+    findLessonsForCourse,
+    updateCourse
+  } from "./controllers/index"
+
 
 const routes = Router()
 
@@ -11,6 +15,10 @@ routes.get('/courses',
 
 routes.get('/courses/:courseUrl', 
   getOneCourseByUrl
+)
+
+routes.patch('/courses/:courseId', 
+  updateCourse
 )
 
 routes.get('/courses/:courseId/lessons', 
