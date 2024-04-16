@@ -4,6 +4,7 @@ import { findLessonsForCourse } from './findLessonsForCourse'
 import { updateCourse } from './updateCourse'
 import { createCourse } from './createCourse'
 import { deleteCourseAndLessons } from './deleteCourse'
+import { createUser } from './createUser'
 
 export {
   getAllCourses,
@@ -11,5 +12,6 @@ export {
   findLessonsForCourse,
   updateCourse,
   createCourse,
-  deleteCourseAndLessons
+  deleteCourseAndLessons,
+  createUser
 }

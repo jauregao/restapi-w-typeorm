@@ -5,7 +5,8 @@ import {
     findLessonsForCourse,
     updateCourse,
     createCourse,
-    deleteCourseAndLessons
+    deleteCourseAndLessons,
+    createUser
   } from './controllers/index'
 
 const routes = Router()
@@ -17,6 +18,12 @@ routes.get('/courses',
 routes.get('/courses/:courseUrl', 
   getOneCourseByUrl
 )
+
+routes.get('/courses/:courseId/lessons', 
+  findLessonsForCourse
+)
+
+//auth needeed
 
 routes.patch('/courses/:courseId', 
   updateCourse
@@ -30,8 +37,10 @@ routes.post('/courses',
   createCourse
 )
 
-routes.get('/courses/:courseId/lessons', 
-  findLessonsForCourse
+//users endpoints
+
+routes.post('/users',
+  createUser
 )
 
 export default routes
