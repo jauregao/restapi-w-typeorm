@@ -1,9 +1,10 @@
-import { DataSource } from "typeorm"
-import { Course } from "../models/Course"
-import { Lesson } from "../models/Lesson"
+import { DataSource } from 'typeorm'
+import { Course } from '../models/Course'
+import { Lesson } from '../models/Lesson'
+import { User } from '../models/Users'
 
 export const AppDataSource = new DataSource({
-    type: "postgres",
+    type: 'postgres',
     host: process.env.DB_HOST,
     port: Number(process.env.DB_PORT),
     username: process.env.DB_USER,
@@ -12,7 +13,8 @@ export const AppDataSource = new DataSource({
     // ssl: true,
     entities: [
         Course,
-        Lesson
+        Lesson,
+        User
     ],
     /* use only in dev mode */
     synchronize: true,
