@@ -1,15 +1,32 @@
-import { Request, Response } from 'express'
-import { defaultErrorHandler } from "./default-error-handler"
+import { NextFunction, Request, Response } from 'express'
+import { defaultErrorHandler } from './default-error-handler'
+import jwt, { Secret } from 'jsonwebtoken'
 
-export async function checkIfAuthenticated(req: Request, res: Response){
+const secretKey: Secret = process.env.JWT_SECRET_KEY
 
-    const authJwtToken = req.headers.authorization
+export async function checkIfAuthenticated(req: Request, res: Response, next: NextFunction){
+
+  const { authorization } = req.headers
 
     try {
 
-      
+        if (!authorization) return res.status(401).json({ message: 'Access denied.' })
 
-      } catch (error) {
-        return defaultErrorHandler(error, res)
-      }
-  }
+      const token = authorization.replace('Bearer ', '').trim()
+
+      const user = checkJwtValidity(token)
+
+        if (!user) return res.status(403).json({ message: 'Could not validate the authentication JWT, access denied.' })
+
+      req['user'] = user
+      
+      next()
+
+    } catch (error) {
+      return defaultErrorHandler(error, res)
+    }
+}
+
+function checkJwtValidity(token:string) {
+  return jwt.verify(token, secretKey)
+}

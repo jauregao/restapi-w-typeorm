@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import { checkIfAuthenticated } from './middleware/authentication'
 import {
     getAllCourses,
     getOneCourseByUrl,
@@ -24,11 +25,11 @@ routes.get('/courses/:courseId/lessons',
   findLessonsForCourse
 )
 
-//auth needeed
-
 routes.post('/login',
-  login
+login
 )
+
+routes.use(checkIfAuthenticated)
 
 routes.patch('/courses/:courseId', 
   updateCourse
@@ -41,8 +42,6 @@ routes.delete('/courses/:courseId',
 routes.post('/courses', 
   createCourse
 )
-
-//users endpoints
 
 routes.post('/users',
   createUser

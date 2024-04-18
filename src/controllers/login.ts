@@ -5,7 +5,7 @@ import { User } from '../models/Users'
 import { comparePasswordHashed } from '../middleware/password-hash'
 import jwt, { Secret } from 'jsonwebtoken'
 
-const secretKey: Secret = process.env.JWT_SECRET_KEY!
+const secretKey: Secret = process.env.JWT_SECRET_KEY
 const expiresIn = process.env.JWT_EXPIRED
 
 export async function login(req: Request, res: Response){
