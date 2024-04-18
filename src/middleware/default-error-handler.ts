@@ -9,5 +9,5 @@ export function defaultErrorHandler(error: Error, res: Response){
     return
   }
 
-  return res.status(500).json({ message : 'Internal server error.'})
+  return res.status(500).json({ error : 'Internal server error.'})
 }

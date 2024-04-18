@@ -10,13 +10,13 @@ export async function checkIfAuthenticated(req: Request, res: Response, next: Ne
 
     try {
 
-        if (!authorization) return res.status(401).json({ message: 'Access denied.' })
+        if (!authorization) return res.status(401).json({ error: 'Access denied.' })
 
       const token = authorization.replace('Bearer ', '').trim()
 
       const user = checkJwtValidity(token)
 
-        if (!user) return res.status(403).json({ message: 'Could not validate the authentication JWT, access denied.' })
+        if (!user) return res.status(403).json({ error: 'Could not validate the authentication JWT, access denied.' })
 
       req['user'] = user
       

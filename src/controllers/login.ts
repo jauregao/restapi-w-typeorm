@@ -14,7 +14,7 @@ export async function login(req: Request, res: Response){
 
     try {
 
-        if (!email || !password) return res.status(400).json({ message: 'Invalid email or password.' })
+        if (!email || !password) return res.status(400).json({ error: 'Invalid email or password.' })
       
       const user = await AppDataSource
         .getRepository(User)
@@ -22,11 +22,11 @@ export async function login(req: Request, res: Response){
         .where({email})
         .getOne()
       
-        if (!user) return res.status(404).json({ message: 'User not found.' })
+        if (!user) return res.status(404).json({ error: 'User not found.' })
 
       const validPass = await comparePasswordHashed(password, user.passwordHash)
 
-        if (!validPass) return res.status(403).json({ message: 'Invalid email or password.' })
+        if (!validPass) return res.status(403).json({ error: 'Invalid email or password.' })
 
       const token = generateAuthToken(user.id, user.email, user.isAdmin)
 
