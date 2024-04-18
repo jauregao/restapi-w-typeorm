@@ -5,6 +5,7 @@ import { updateCourse } from './updateCourse'
 import { createCourse } from './createCourse'
 import { deleteCourseAndLessons } from './deleteCourse'
 import { createUser } from './createUser'
+import { login } from './login'
 
 export {
   getAllCourses,
@@ -13,5 +14,6 @@ export {
   updateCourse,
   createCourse,
   deleteCourseAndLessons,
-  createUser
+  createUser,
+  login
 }

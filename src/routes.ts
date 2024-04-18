@@ -6,8 +6,9 @@ import {
     updateCourse,
     createCourse,
     deleteCourseAndLessons,
-    createUser
-  } from './controllers/index'
+    createUser,
+    login
+  } from './controllers'
 
 const routes = Router()
 
@@ -24,6 +25,10 @@ routes.get('/courses/:courseId/lessons',
 )
 
 //auth needeed
+
+routes.post('/login',
+  login
+)
 
 routes.patch('/courses/:courseId', 
   updateCourse
