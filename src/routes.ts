@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { checkIfAuthenticated } from './middleware/authentication'
+import { checkIfIsAdmin } from './middleware/admin-only'
 import {
     getAllCourses,
     getOneCourseByUrl,
@@ -44,6 +45,7 @@ routes.post('/courses',
 )
 
 routes.post('/users',
+  checkIfIsAdmin,
   createUser
 )
 
